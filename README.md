@@ -22,7 +22,7 @@ Implement design patterns with Systemverilog
 4.state  
 5.template method  
 6.visitor  
-7.strategy
+7.strategy  
 8.memento  
 9.interpreter  
 10.mediator  
