@@ -1,12 +1,11 @@
 // simple factory in systemverilog
 virtual class product;
     virtual function display();
-    endfunction
 endclass
 
 class smartphone extends product;
-  function new();
-  endfunction
+    function new();
+    endfunction
     function display();
         $display("display smartphone");
     endfunction
@@ -20,7 +19,6 @@ endclass
 
 virtual class abstractfactory;
     virtual function product create_product();
-    endfunction
 endclass
 
 class phonefactory extends abstractfactory;
