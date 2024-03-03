@@ -1,4 +1,7 @@
 eda.bat
 work/*
 obj_dir
+*-sim
 *.lock
+__pycache__/
+*.log
