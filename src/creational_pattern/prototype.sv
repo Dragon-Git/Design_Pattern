@@ -1,40 +1,40 @@
-virtual class cell;
+virtual class cells;
 // abstract class, define a interface
-  pure virtual function cell clone();
+  pure virtual function cells clone();
   pure virtual function void display();
 endclass
 
-class plant_cell extends cell;
+class plant_cells extends cells;
 // concrete class ,Implement interface
   int size = 500;
-  virtual function plant_cell clone();
-    plant_cell pc;
+  virtual function plant_cells clone();
+    plant_cells pc;
     pc = new();
     pc.size = this.size;
     return pc;
   endfunction
   virtual function void display();
-    $display("plant_cell, size = %d",size);
+    $display("plant_cells, size = %d",size);
   endfunction
 endclass
 
-class animal_cell extends cell;
+class animal_cells extends cells;
 // concrete class ,Implement interface
   int size = 1000;
-  virtual function animal_cell clone();
-    animal_cell ac;
+  virtual function animal_cells clone();
+    animal_cells ac;
     ac = new();
     ac.size = this.size;
     return ac;
   endfunction
   virtual function void display();
-    $display("animal_cell, size = %d",size);
+    $display("animal_cells, size = %d",size);
   endfunction
 endclass
 
 module prototype();
-  plant_cell cp[5];
-  animal_cell ca[5];
+  plant_cells cp[5];
+  animal_cells ca[5];
   initial begin
     cp[0] = new();
     ca[0] = new();
@@ -47,5 +47,6 @@ module prototype();
       cp[i].display();
       ca[i].display();
     end
+    $finish;
   end
 endmodule

@@ -177,14 +177,14 @@ endclass
 module top;
   initial begin
     // 创建不同类型的武器和防具 
-    Equipment knife = Knife::new();
-    Equipment sword = Sword::new();
-    Equipment helmet = Helmet::new();
-    Equipment chestplate = Chestplate::new();
+    Knife knife = new();
+    Sword sword = new();
+    Helmet helmet = new();
+    Chestplate chestplate = new();
     // 添加附魔效果 
-    Equipment fire_sword = FireEnchantment::new(sword);
-    Equipment frost_knife = FrostEnchantment::new(knife);
-    Equipment lightning_helmet = LightningEnchantment::new(helmet);
+    FireEnchantment fire_sword = new(sword);
+    FrostEnchantment frost_knife = new(knife);
+    LightningEnchantment lightning_helmet = new(helmet);
     fire_sword.add_enchantment("Fire");
     frost_knife.add_enchantment("Frost");
     lightning_helmet.add_enchantment("Lightning");
@@ -196,5 +196,6 @@ module top;
     fire_sword.display();
     frost_knife.display();
     lightning_helmet.display();
+    $finish;
   end
 endmodule

@@ -23,5 +23,6 @@ module template;
   initial begin
     g = new;
     g.play();
+    $finish;
   end
 endmodule

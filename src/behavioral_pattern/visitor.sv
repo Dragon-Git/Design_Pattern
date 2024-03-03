@@ -80,5 +80,6 @@ module visitor;
     obj.e.push_back(eb);
     obj.visit(vs);
     obj.visit(vl);
+    $finish;
   end
 endmodule

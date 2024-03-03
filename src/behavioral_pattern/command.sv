@@ -1,6 +1,6 @@
 // Command pattern in systemverilog
 interface class Command; 
-  virtual function void execute();
+  pure virtual function void execute();
 endclass
 typedef class Soldier;
 
@@ -52,5 +52,6 @@ module test;
     captain.invoke();
     captain.setCommand(firecommand);
     captain.invoke();
+    $finish;
   end
 endmodule

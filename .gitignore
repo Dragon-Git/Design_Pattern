@@ -1,2 +1,4 @@
 eda.bat
 work/*
+obj_dir
+*.lock

@@ -50,5 +50,6 @@ module test;
     stock.addObserver(investor2);
     stock.change(21);
     stock.change(9);
+    $finish;
   end
 endmodule

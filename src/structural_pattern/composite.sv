@@ -10,10 +10,10 @@ class node;
     this.name = name;
     this.parent = parent;
   endfunction
-  function get_id();
+  function int get_id();
     return this.id;
   endfunction
-  function get_name();
+  function string get_name();
     return this.name;
   endfunction
   function node get_parent();
@@ -34,9 +34,10 @@ module Composite;
   initial begin
     root = new(0, "root", null);
     for (i = 1; i <= 10; i++) begin
-      node child = new(i, "child" + i, root);
+      node child = new(i, {"child", i}, root);
       root.add_child(child);
-      root.get_child();
+      void'(root.get_child());
     end
+    $finish;
   end
 endmodule

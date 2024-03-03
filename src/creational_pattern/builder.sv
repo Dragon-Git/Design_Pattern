@@ -84,6 +84,7 @@ module builder;
     s = d.build_phone();
     d.set_builder(hb);
     s = d.build_phone();
+    $finish;
   end
 endmodule
 

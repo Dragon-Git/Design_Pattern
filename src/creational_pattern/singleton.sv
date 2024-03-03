@@ -1,7 +1,7 @@
 class singleton;
   static singleton s_comp;
-  rand bit [31:0] addr;
-  rand bit [31:0] data;
+  rand int addr;
+  rand int data;
 
   static function singleton get_inst();
     if(s_comp == null) begin
@@ -12,22 +12,16 @@ class singleton;
     return s_comp;
   endfunction
   
-  virtual task display();
-    $display($sformatf("addr:%d \ndata:%d",addr,data));
-  endtask
-  
 endclass
 
 module singleton_test();
 initial begin
-  singleton a, b, c;
+  singleton a, b;
   a = singleton::get_inst();
   b = singleton::get_inst();
-  c = singleton::get_inst();
-  a.randomize();
-  a.display();
-  b.display();
-  c.display();
+  if(a == b) $display("a and b are same");
+  else $error("a and b are not same");
+  $finish;
 end
 endmodule
 

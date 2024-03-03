@@ -1,5 +1,5 @@
 `ifndef STATE
-`def STATE
+`define STATE
 // State pattern in systemverilog
 typedef class Context;
 interface class State;
@@ -44,6 +44,7 @@ module modStateTest;
         m_context.set_state(start_state);
         m_context.do_action();
         m_context.do_action();
+        $finish;
     end
 endmodule
 `endif

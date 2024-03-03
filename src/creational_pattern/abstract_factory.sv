@@ -1,38 +1,38 @@
 // simple factory in systemverilog
 virtual class product;
-    virtual function display();
+    virtual function void display();
     endfunction
 endclass
 
 class smartphone extends product;
   function new();
   endfunction
-    function display();
+    function void display();
         $display("display smartphone");
     endfunction
 endclass
 
 class computer extends product;
-    function display();
+    function void display();
         $display("display computer");
     endfunction
 endclass
 
 virtual class os;
-    virtual function display();
+    virtual function void display();
     endfunction
 endclass
 
 class android extends os;
   function new();
   endfunction
-    function display();
+    function void display();
         $display("display android");
     endfunction
 endclass
 
 class linux extends os;
-    function display();
+    function void display();
         $display("display linux");
     endfunction
 endclass
@@ -47,9 +47,9 @@ endclass
 
 class phonefactory extends abstractfactory;
     function os create_sw();
-        android android;
-        android = new();
-        return android;
+        android obj;
+        obj = new();
+        return obj;
     endfunction
     function product create_hw();
         smartphone phone;
@@ -60,9 +60,9 @@ endclass
 
 class computerfactory extends abstractfactory;
     function os create_sw();
-        linux linux;
-        linux = new();
-        return linux;
+        linux obj;
+        obj = new();
+        return obj;
     endfunction
     function product create_hw();
         computer comp;
@@ -87,6 +87,7 @@ module test_simple_factory;
         swp2 = fc.create_sw();
         hwp2.display();
         swp2.display();
+        $finish;
     end
 endmodule
 

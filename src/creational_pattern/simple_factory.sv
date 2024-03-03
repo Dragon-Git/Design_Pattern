@@ -1,35 +1,33 @@
 // simple factory in systemverilog
 virtual class product;
-  virtual function display();
+  virtual function void display();
   endfunction
 endclass
 
 class smartphone extends product;
   function new();
   endfunction
-  function display();
+  function void display();
     $display("display smartphone");
   endfunction
 endclass
 
 class computer extends product;
-  function display();
+  function void display();
     $display("display computer");
   endfunction
 endclass
 
 class factory;
-  smartphone phone;
-  smartphone phone;
-  function product create_product(string typename);
+  function product create_product(string type_name);
     smartphone phone;
-    computer   computer;
-    if (typename == "smartphone") begin
+    computer   comput;
+    if (type_name == "smartphone") begin
       phone = new();
       return phone;
-    end else if (typename == "computer") begin
-      computer = new();
-      return computer;
+    end else if (type_name == "computer") begin
+      comput = new();
+      return comput;
     end else begin
       return null;
     end
@@ -45,5 +43,6 @@ module test_simple_factory;
     p2 = f.create_product("computer");
     p1.display();
     p2.display();
+    $finish;
   end
 endmodule

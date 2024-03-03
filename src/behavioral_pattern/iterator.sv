@@ -29,7 +29,7 @@ class list extends container;
   function int get(int index);
     return get(index);
   endfunction
-  function iterator getiterator();
+  function listiterator getiterator();
     listiterator li = new;
     return li;
   endfunction
@@ -37,7 +37,7 @@ endclass
 
 module iterator;
   list l;
-  iterator li;
+  listiterator li;
   int value;
   initial begin
     l  = new;
@@ -46,5 +46,6 @@ module iterator;
       value = li.next();
       $display("%d", value);
     end
+    $finish;
   end
 endmodule

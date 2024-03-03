@@ -33,5 +33,6 @@ module adapter;
     usb_a2c_adapter_inst = new();
     usb_a2c_adapter_inst.charge();
     usb_a2c_adapter_inst.transfer();
+    $finish;
   end
 endmodule

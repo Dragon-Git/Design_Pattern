@@ -1,6 +1,6 @@
 // simple factory in systemverilog
 virtual class product;
-    virtual function display();
+    pure virtual function void display();
 endclass
 
 class smartphone extends product;
@@ -18,7 +18,7 @@ class computer extends product;
 endclass
 
 virtual class abstractfactory;
-    virtual function product create_product();
+    pure virtual function product create_product();
 endclass
 
 class phonefactory extends abstractfactory;
@@ -31,9 +31,9 @@ endclass
 
 class computerfactory extends abstractfactory;
     function product create_product();
-        computer computer;
-        computer = new();
-        return computer;
+        computer obj;
+        obj = new();
+        return obj;
     endfunction
 endclass
 
@@ -48,6 +48,7 @@ module test_simple_factory;
         p2 = fc.create_product();
         p1.display();
         p2.display();
+        $finish;
     end
 endmodule
 
