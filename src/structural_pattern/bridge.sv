@@ -1,1 +1,0 @@
-// Bridge pattern in systemverilog

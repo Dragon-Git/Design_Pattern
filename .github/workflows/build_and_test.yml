@@ -42,15 +42,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      # - name: Test 
-      #   run: |
-      #     echo Build and Test
-      #     source ./run.sh
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
 
-      - name: Run pytest
-        uses: pavelzw/pytest-action@v2
-        with:
-          verbose: false
-          emoji: false
-          job-summary: false
+      - name: Test with pytest
+        run: pytest
 
