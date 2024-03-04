@@ -33,20 +33,21 @@ class animal_cells extends cells;
 endclass
 
 module prototype();
-  plant_cells cp[5];
-  animal_cells ca[5];
+  plant_cells cp[2];
+  animal_cells ca[2];
   initial begin
     cp[0] = new();
     ca[0] = new();
     cp[0].display();
     ca[0].display();
-    for(int i=1;i<5;i++) begin
-      cp[i-1].size = cp[i-1].size + 100;
-      cp[i] = cp[i-1].clone();
-      ca[i] = ca[i-1].clone();
-      cp[i].display();
-      ca[i].display();
-    end
+    cp[0].size += 100;
+    ca[0].size += 200;
+    cp[1] = cp[0].clone();
+    ca[1] = ca[0].clone();
+    if(cp[1].size == 600) $display("cp clone successful!");
+    else $error("cp clone failed!");
+    if(ca[1].size == 1200) $display("ca clone successful!");
+    else $error("ca clone failed!");
     $finish;
   end
 endmodule

@@ -42,15 +42,15 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Test 
-        run: |
-          echo Build and Test
-          source ./run.sh
+      # - name: Test 
+      #   run: |
+      #     echo Build and Test
+      #     source ./run.sh
 
-      # - name: Run pytest
-      #   uses: pavelzw/pytest-action@v2
-      #   with:
-      #     verbose: false
-      #     emoji: false
-      #     job-summary: false
+      - name: Run pytest
+        uses: pavelzw/pytest-action@v2
+        with:
+          verbose: false
+          emoji: false
+          job-summary: false
 
